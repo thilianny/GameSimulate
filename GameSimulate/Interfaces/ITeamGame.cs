@@ -1,8 +1,8 @@
 namespace GameSimulate.Interfaces
 {
-    internal interface IOpponentsGame : ISportEvent
+    internal interface ITeamGame : ISportEvent
     {
-        IParticipant Home { get; set; }
-        IParticipant Away { get; set; }
+        IParticipant Home { get; }
+        IParticipant Away { get; }
     }
 }

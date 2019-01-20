@@ -2,8 +2,9 @@ using System;
 
 namespace GameSimulate.Interfaces
 {
-    internal interface IGame
+    public interface ISportEvent
     {
+        void AddParticipant(int id, string title, int power);
         void Simulate();
     }
 }

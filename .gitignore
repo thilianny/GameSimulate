@@ -1,0 +1,12 @@
+
+\.idea/
+
+GameSimulate\.sln\.DotSettings\.user
+
+TestApp/bin/
+
+TestApp/obj/
+
+GameSimulate/bin/
+
+GameSimulate/obj/

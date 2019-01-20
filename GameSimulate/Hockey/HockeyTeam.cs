@@ -1,13 +1,14 @@
 using System;
 using GameSimulate.Interfaces;
 
-namespace GameSimulate.Classes
+namespace GameSimulate.Hockey
 {
     public class HockeyTeam : IParticipant
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public int Power { get; set; }
+        public int Goals { get; set; } = 0;
         
         public HockeyTeam(int id, string title, int power)
         {

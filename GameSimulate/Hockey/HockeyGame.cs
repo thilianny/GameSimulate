@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using GameSimulate.Interfaces;
 
-namespace GameSimulate.Classes
+namespace GameSimulate.Hockey
 {
     public class HockeyGame : ITeamGame
     {

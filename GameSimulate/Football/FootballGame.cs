@@ -1,13 +1,14 @@
 using System;
-using System.Collections.Generic;
 using GameSimulate.Interfaces;
 
-namespace GameSimulate.Classes
+namespace GameSimulate.Football
 {
     public class FootballGame : ITeamGame
     {
-        public IParticipant Home { get; set; }
-        public IParticipant Away { get; set; }
+        public IParticipant Home { get; private set; }
+        public IParticipant Away { get; private set; }
+
+        public int WindPower { get; private set; } = 0;
 
         public void AddParticipant(int id, string title, int power)
         {
