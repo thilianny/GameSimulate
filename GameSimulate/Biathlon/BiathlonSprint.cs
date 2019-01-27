@@ -11,6 +11,7 @@ namespace GameSimulate.Biathlon
     {
         private readonly List<IParticipant> _participants = new List<IParticipant>();
         public ReadOnlyCollection<IParticipant> Participants => _participants.AsReadOnly();
+        public double WindPower { get; set; }
 
         public void AddParticipant(int id, string title, int power)
         {
@@ -19,27 +20,27 @@ namespace GameSimulate.Biathlon
         
         public void Simulate()
         {
-            foreach (var participant in Participants)
+            foreach (var participant in _participants)
             {
                 participant.Move();
             }
 
-            foreach (var participant in Participants)
+            foreach (var participant in _participants)
             {
-                ((Biathlete)participant).ProneShot();
+                //((Biathlete)participant).ProneShot();
             }
             
-            foreach (var participant in Participants)
+            foreach (var participant in _participants)
             {
                 participant.Move();
             }
             
-            foreach (var participant in Participants)
+            foreach (var participant in _participants)
             {
-                ((Biathlete)participant).StandingShot();
+                //((Biathlete)participant).StandingShot();
             }
             
-            foreach (var participant in Participants)
+            foreach (var participant in _participants)
             {
                 participant.Move();
             }

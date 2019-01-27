@@ -8,36 +8,57 @@ namespace GameSimulate.Biathlon
     public class Biathlete : IParticipant
     {
         public int Id { get; }
-        public string Title { get; }
+        public string Name { get; }
         public int Power { get; }
 
         public int DistancePassed { get; } = 0;
 
         public TimeSpan Time { get; } = new TimeSpan(0, 0, 0);
-        public double ProneChance { get; } = 0;
-        public double StandingChanсe { get; } = 0;
 
-        public Biathlete(int id, string title, int power)
+        private double _proneSuccess = 0;
+        private double _standingSuccess = 0;
+
+        private double _speed = 0;
+
+        public Biathlete(int id, string name, int power)
         {
             Id = id;
-            Title = title;
+            Name = name;
             Power = power;
-            ProneChance = power / 100;
+
+            _proneSuccess = power * 0.95;
+            _standingSuccess = power * 0.9;
         }
         
         public void Move()
         {
-            Console.WriteLine($"biathlete {Title} moves!");
+            Console.WriteLine($"biathlete {Name} moves!");
         }
 
-        public void ProneShot()
+        public void Shoot(ShootingType st)
         {
-            Console.WriteLine($"biathlete {Title} shoots prone!");
+            Console.WriteLine($"biathlete {Name} shoots!");
+            switch (st)
+            {
+                case ShootingType.Prone:
+                    ShootProne();
+                    break;
+                case ShootingType.Standing:
+                    ShootStand();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(st), st, null);
+            }
         }
-        
-        public void StandingShot()
+
+        private static void ShootProne()
         {
-            Console.WriteLine($"biathlete {Title} shoots standing!");
+            
+        }
+
+        private static void ShootStand()
+        {
+            
         }
     }
 }
