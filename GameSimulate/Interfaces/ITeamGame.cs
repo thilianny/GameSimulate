@@ -1,8 +1,10 @@
+using GameSimulate.Football;
+
 namespace GameSimulate.Interfaces
 {
     internal interface ITeamGame : ISportEvent
     {
-        IParticipant Home { get; }
-        IParticipant Away { get; }
+        ITeam Home { get; }
+        ITeam Away { get; }
     }
 }

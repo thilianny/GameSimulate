@@ -5,27 +5,20 @@ namespace GameSimulate.Football
 {
     public class FootballGame : ITeamGame
     {
-        public IParticipant Home { get; private set; }
-        public IParticipant Away { get; private set; }
-
-        public int WindPower { get; private set; } = 0;
-
-        public void AddParticipant(int id, string title, int power)
+        public FootballGame(int id, DateTime start, ITeam home, ITeam away)
         {
-            if (Home == null)
-            {
-                Home = new FootballTeam(id, title, power);
-            }
-            else if (Away == null)
-            {
-                Away = new FootballTeam(id, title, power);
-            }
-            else
-            {
-                throw new Exception("Football game need 2 teams");
-            }
-            
+            Id = id;
+            Start = start;
+            Home = home;
+            Away = away;
         }
+
+        public int Id { get; }
+        
+        public DateTime Start { get; }
+        
+        public ITeam Home { get; }
+        public ITeam Away { get; }
         
         public void Simulate()
         {

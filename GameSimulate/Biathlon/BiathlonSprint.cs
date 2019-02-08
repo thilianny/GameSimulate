@@ -9,13 +9,20 @@ namespace GameSimulate.Biathlon
 {
     public class BiathlonSprint : IRace
     {
-        private readonly List<IParticipant> _participants = new List<IParticipant>();
-        public ReadOnlyCollection<IParticipant> Participants => _participants.AsReadOnly();
-        public double WindPower { get; set; }
+        public int Id { get; set; }
+        
+        public DateTime Start { get; set; }
+        
+        private readonly List<ISportsman> _participants = new List<ISportsman>();
+        public ReadOnlyCollection<ISportsman> Participants => _participants.AsReadOnly();
 
-        public void AddParticipant(int id, string title, int power)
+   
+        
+        public Weather Weather { get; set; }
+
+        public void RegisterParticipant(ISportsman sportsman)
         {
-            _participants.Add(new Biathlete(id, title, power));
+            _participants.Add(sportsman);
         }
         
         public void Simulate()

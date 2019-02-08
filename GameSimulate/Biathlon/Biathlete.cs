@@ -5,7 +5,7 @@ using GameSimulate.Interfaces;
 namespace GameSimulate.Biathlon
 {
     [SuppressMessage("ReSharper", "PossibleLossOfFraction")]
-    public class Biathlete : IParticipant
+    public class Biathlete : ISportsman
     {
         public int Id { get; }
         public string Name { get; }
@@ -17,8 +17,6 @@ namespace GameSimulate.Biathlon
 
         private double _proneSuccess = 0;
         private double _standingSuccess = 0;
-
-        private double _speed = 0;
 
         public Biathlete(int id, string name, int power)
         {

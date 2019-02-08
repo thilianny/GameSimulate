@@ -1,9 +1,7 @@
-using System.Collections.ObjectModel;
-
 namespace GameSimulate.Interfaces
 {
-    public interface IRace : ISportEvent
+    public interface IRace : ISinglesEvent
     {
-        ReadOnlyCollection<IParticipant> Participants { get; }
+
     }
 }
