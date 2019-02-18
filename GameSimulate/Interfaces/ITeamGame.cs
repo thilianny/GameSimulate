@@ -2,9 +2,9 @@ using GameSimulate.Football;
 
 namespace GameSimulate.Interfaces
 {
-    internal interface ITeamGame : ISportEvent
+    internal interface ITeamGame<out T> : ISportEvent
     {
-        ITeam Home { get; }
-        ITeam Away { get; }
+        T Home { get; }
+        T Away { get; }
     }
 }

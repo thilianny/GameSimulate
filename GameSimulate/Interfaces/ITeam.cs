@@ -4,10 +4,9 @@ using GameSimulate.Football;
 
 namespace GameSimulate.Interfaces
 {
-    public interface ITeam : IParticipant
+    public interface ITeam<T> : IParticipant
     {
-        ReadOnlyCollection<ISportsman> Roster { get; }
-
-        void SignContract(ISportsman sportsman);
+        string Abbreviation { get; }
+        ReadOnlyCollection<T> Roster { get; }
     }
 }

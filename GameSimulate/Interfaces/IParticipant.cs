@@ -2,7 +2,6 @@ namespace GameSimulate.Interfaces
 {
     public interface IParticipant
     {
-        int Id { get; }
         string Name { get; }
         int Power { get;}
 

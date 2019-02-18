@@ -1,47 +1,44 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using GameSimulate.Interfaces;
 
 namespace GameSimulate.Football
 {
-    public class FootballTeam : ITeam
+    public sealed class FootballTeam : ITeam<Footballer>
     {
-        public int Id { get; }
         public string Name { get; }
+        public string Abbreviation { get; }
         public int Power { get; }
         
-        private readonly List<ISportsman> _roster = new List<ISportsman>();
-        public ReadOnlyCollection<ISportsman> Roster => _roster.AsReadOnly();
+        private readonly List<Footballer> _roster = new List<Footballer>();
+        
+        public ReadOnlyCollection<Footballer> Roster => _roster.AsReadOnly();
 
-
-        public void SignContract(ISportsman sportsman)
+        public FootballTeam(string name, string abbreviation, int power)
         {
-            if (sportsman is Footballer footballer)
-            {
-                _roster.Add(footballer);
-            }
-            else
-            {
-                throw new ArgumentException("You can sign only footballers to football team.");
-            }
+            Name = name;
+            Abbreviation = abbreviation;
+            Power = power;
+            
+            // roster auto generation based on incoming power?
         }
 
-        public FootballTeam(int id, int power, string name)
+        public FootballTeam(string name, string abbreviation, List<Footballer> roster)
         {
-            Id = id;
-            Power = power;
             Name = name;
+            Abbreviation = abbreviation;
+            
+            _roster = roster;
+
+            Power = _roster.Sum(x => x.Power) / _roster.Count();
+
         }
         
         public void Move()
         {
             Console.WriteLine($"football team {Name} attacks!");
-        }
-
-        public void AnotherAction()
-        {
-            
         }
     }
 }

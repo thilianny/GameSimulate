@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using GameSimulate.Biathlon;
+using GameSimulate.Football;
 using GameSimulate.Hockey;
 using GameSimulate.Interfaces;
 
@@ -11,17 +12,13 @@ namespace TestApp
     class Program
     {
         static void Main(string[] args)
-        {          
-            /*ISportEvent game = new BiathlonSprint();
-            
-            game.AddParticipant(1, "Dorothea Wierer", 94);
-            game.AddParticipant(2, "Franziska Preuss", 80);
-           
-            game.Simulate();
+        {
 
-            Console.ReadLine();*/
+            var f = new Footballer(1, "Cristiano Ronaldo", 95);
             
             
+            var h = new HockeyPlayer(8,"Alex Ovechkin", 95);
+
         }
     }
 }

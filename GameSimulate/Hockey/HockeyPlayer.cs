@@ -1,10 +1,10 @@
 using GameSimulate.Interfaces;
 
-namespace GameSimulate.Football
+namespace GameSimulate.Hockey
 {
-    public class Footballer : ISportsman
+    public class HockeyPlayer : ISportsman
     {
-        public Footballer(int id, string name, int power)
+        public HockeyPlayer(int id, string name, int power)
         {
             Id = id;
             Name = name;
