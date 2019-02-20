@@ -3,12 +3,12 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Hockey
 {
-    public class HockeyGame : ITeamGame<HockeyTeam>
+    public class HockeyGame : ITeamGame<HockeyPlayer>
     {        
         public DateTime Start { get; }
-        
-        public HockeyTeam Home { get; }
-        public HockeyTeam Away { get; }
+
+        public ITeam<HockeyPlayer> Home { get; }
+        public ITeam<HockeyPlayer> Away { get; }
         
         public HockeyGame(DateTime start, HockeyTeam home, HockeyTeam away)
         {

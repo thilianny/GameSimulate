@@ -1,11 +1,19 @@
 using GameSimulate.Enums;
+using GameSimulate.Interfaces;
 
 namespace GameSimulate
 {
-    public class Weather
+    public class Weather : ICondition<Condition>
     {
-        public Conditions Conditions { get; set; }
-        public int Temperature { get; set; }
-        public int WindPower { get; set; }
+        public Weather(int windPower, Condition condition, int temperature)
+        {
+            WindPower = windPower;
+            Condition = condition;
+            Temperature = temperature;
+        }
+
+        public Condition Condition { get; }
+        public int Temperature { get; }
+        public int WindPower { get; }
     }
 }

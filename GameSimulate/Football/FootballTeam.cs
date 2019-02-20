@@ -9,26 +9,23 @@ namespace GameSimulate.Football
     public sealed class FootballTeam : ITeam<Footballer>
     {
         public string Name { get; }
-        public string Abbreviation { get; }
         public int Power { get; }
         
         private readonly List<Footballer> _roster = new List<Footballer>();
         
         public ReadOnlyCollection<Footballer> Roster => _roster.AsReadOnly();
 
-        public FootballTeam(string name, string abbreviation, int power)
+        public FootballTeam(string name, int power)
         {
             Name = name;
-            Abbreviation = abbreviation;
             Power = power;
             
             // roster auto generation based on incoming power?
         }
 
-        public FootballTeam(string name, string abbreviation, List<Footballer> roster)
+        public FootballTeam(string name, List<Footballer> roster)
         {
             Name = name;
-            Abbreviation = abbreviation;
             
             _roster = roster;
 

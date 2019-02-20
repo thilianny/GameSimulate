@@ -1,13 +1,15 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace GameSimulate.Interfaces
 {
-    public interface ISinglesEvent : ISportEvent
+    public interface ISinglesEvent<T> : ISportEvent where T : ISportsman
     {
-        ReadOnlyCollection<ISportsman> Participants { get; }
-        Weather Weather { get; set; }
+        ReadOnlyCollection<T> Participants { get; }
+
         // event registration
-        void RegisterParticipant(ISportsman sportsman);
+        void RegisterSingle(T participant);
+        void RegisterList(IEnumerable<T> participants);
     }
 }

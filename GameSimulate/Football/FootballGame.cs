@@ -3,18 +3,19 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Football
 {
-    public class FootballGame : ITeamGame<FootballTeam>
+    public class FootballGame : ITeamGame<Footballer>
     {        
         public DateTime Start { get; }
+        public Weather Weather { get; }
+        public ITeam<Footballer> Home { get; }
+        public ITeam<Footballer> Away { get; }
         
-        public FootballTeam Home { get; }
-        public FootballTeam Away { get; }
-        
-        public FootballGame(DateTime start, FootballTeam home, FootballTeam away)
+        public FootballGame(DateTime start, FootballTeam home, FootballTeam away, Weather weather)
         {
             Start = start;
             Home = home;
             Away = away;
+            Weather = weather;
         }
         
         public void Simulate()

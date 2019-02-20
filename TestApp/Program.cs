@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using GameSimulate.Biathlon;
-using GameSimulate.Football;
-using GameSimulate.Hockey;
-using GameSimulate.Interfaces;
 
 namespace TestApp
 {
-    [SuppressMessage("ReSharper", "PossibleLossOfFraction")]
     class Program
     {
         static void Main(string[] args)
         {
+            var sprint=new BiathlonSprint(DateTime.Now);
+            sprint.RegisterList(new List<Biathlete>
+            {
+                new Biathlete(1, "Dorothea Wierer", 95),
+                new Biathlete(2, "Lisa Vittozzi", 92),
+            });
+            sprint.RegisterSingle(new Biathlete(3,"Laura Dahlmeier",90));
 
-            var f = new Footballer(1, "Cristiano Ronaldo", 95);
+            foreach (var b in sprint.Participants)
+            {
+                Console.WriteLine($"{b.Name} {b.Power}");
+            }
             
             
-            var h = new HockeyPlayer(8,"Alex Ovechkin", 95);
 
         }
     }
