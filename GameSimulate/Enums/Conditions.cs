@@ -1,6 +1,6 @@
 namespace GameSimulate.Enums
 {
-    public enum Condition
+    public enum Conditions
     {
         Sunny,
         Cloudy,

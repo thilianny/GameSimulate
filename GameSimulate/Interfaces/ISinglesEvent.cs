@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace GameSimulate.Interfaces
 {
-    public interface ISinglesEvent<T> : ISportEvent where T : ISportsman
+    public interface ISinglesEvent<T> : ISportEvent<T> where T : ISportsman
     {
         ReadOnlyCollection<T> Participants { get; }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GameSimulate.Biathlon;
+using GameSimulate.Enums;
 
 namespace TestApp
 {
@@ -8,7 +9,7 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            var sprint=new BiathlonSprint(DateTime.Now);
+            var sprint = new BiathlonSprint(DateTime.Now, Conditions.Snow, -10);
             sprint.RegisterList(new List<Biathlete>
             {
                 new Biathlete(1, "Dorothea Wierer", 95),
@@ -20,8 +21,7 @@ namespace TestApp
             {
                 Console.WriteLine($"{b.Name} {b.Power}");
             }
-            
-            
+
 
         }
     }
