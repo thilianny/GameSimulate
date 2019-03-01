@@ -2,7 +2,7 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Football
 {
-    public class Footballer : ISportsman
+    public class Footballer : ISportsman<Football>
     {
         public Footballer(int id, string name, int power)
         {

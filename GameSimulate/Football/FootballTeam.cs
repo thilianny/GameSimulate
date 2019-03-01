@@ -6,14 +6,15 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Football
 {
-    public sealed class FootballTeam : ITeam<Footballer>
+    public sealed class FootballTeam : ITeam<Football>
     {
         public string Name { get; }
         public int Power { get; }
+
+        private readonly List<ISportsman<Football>> _roster;
+
         
-        private readonly List<Footballer> _roster = new List<Footballer>();
-        
-        public ReadOnlyCollection<Footballer> Roster => _roster.AsReadOnly();
+        public ReadOnlyCollection<ISportsman<Football>> Roster => _roster.AsReadOnly();
 
         public FootballTeam(string name, int power)
         {
@@ -21,13 +22,15 @@ namespace GameSimulate.Football
             Power = power;
             
             // roster auto generation based on incoming power?
+            _roster = new List<ISportsman<Football>>();
         }
 
-        public FootballTeam(string name, List<Footballer> roster)
+        public FootballTeam(string name, IEnumerable<Footballer> roster)
         {
             Name = name;
-            
-            _roster = roster;
+            foreach (var f in roster)
+                _roster.Add(f);
+            //_roster = roster.ToList();
 
             Power = _roster.Sum(x => x.Power) / _roster.Count();
 

@@ -3,7 +3,7 @@ using GameSimulate.Enums;
 
 namespace GameSimulate.Interfaces
 {
-    public interface ISportEvent<T> where T : ISportsman
+    public interface ISportEvent<T> where T : ISport
     {
         DateTime Date { get; }
         EventStatus EventStatus { get; set; }
