@@ -1,7 +1,7 @@
 namespace GameSimulate.Interfaces
 {
-    public interface ISport
+    public interface IBuilder
     {
-        // rules
+        
     }
 }

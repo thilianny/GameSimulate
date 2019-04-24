@@ -3,23 +3,18 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Hockey
 {
-    public class HockeyGame : ITeamGame<HockeyPlayer>
-    {        
-        public DateTime Start { get; }
-
-        public ITeam<HockeyPlayer> Home { get; }
-        public ITeam<HockeyPlayer> Away { get; }
-        
-        public HockeyGame(DateTime start, HockeyTeam home, HockeyTeam away)
+    public class HockeyGame : IGame
+    {
+        public HockeyGame(DateTime date)
         {
-            Start = start;
-            Home = home;
-            Away = away;
+            Date = date;
         }
 
         public void Simulate()
         {
-            Console.WriteLine("HOCKEY GAME PLAYED");
+            Console.WriteLine($"{Date:dd MMMM yyyy}: hockey game played");
         }
+
+        public DateTime Date { get; }
     }
 }

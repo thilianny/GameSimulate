@@ -1,9 +1,8 @@
 namespace GameSimulate.Interfaces
 {
-    public interface ITeamGame<T> : ISportEvent<T>
-     where T : ISport
+    public interface ITeamGame : IGame
     {
-        ITeam<T> Home { get; }
-        ITeam<T> Away { get; }
+        ITeam Home { get; set; }
+        ITeam Away { get; set; }
     }
 }
