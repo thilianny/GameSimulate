@@ -5,6 +5,6 @@ namespace GameSimulate.Builders
 {
     public class HockeyPlayerBuilder : PlayerBuilder
     {
-        public override IPlayer Create() => new HockeyPlayer(_name, _power, _country, _birthdate);
+        public override IPlayer Build() => new HockeyPlayer(_name, _power, _country, _birthdate);
     }
 }
