@@ -5,32 +5,32 @@ namespace GameSimulate.Builders
 {
     public abstract class PlayerBuilder
     {
-        protected string _name;
-        protected int _power;
-        protected string _country;
-        protected DateTime _birthdate;
+        protected string Name;
+        protected int Power;
+        protected string Country;
+        protected DateTime Birthdate;
 
         public PlayerBuilder SetName(string name)
         {
-            _name = name;
+            Name = name;
             return this;
         }
 
         public PlayerBuilder SetPower(int power)
         {
-            _power = power;
+            Power = power;
             return this;
         }
 
         public PlayerBuilder SetCountry(string country)
         {
-            _country = country;
+            Country = country;
             return this;
         }
 
         public PlayerBuilder SetBirthdate(DateTime birthdate)
         {
-            _birthdate = birthdate;
+            Birthdate = birthdate;
             return this;
         }
 

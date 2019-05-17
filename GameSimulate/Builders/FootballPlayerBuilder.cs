@@ -8,6 +8,6 @@ namespace GameSimulate.Builders
 {
     public class FootballPlayerBuilder : PlayerBuilder
     {
-        public override IPlayer Build() => new FootballPlayer(_name, _power, _country, _birthdate);
+        public override IPlayer Build() => new FootballPlayer(Name, Power, Country, Birthdate);
     }
 }

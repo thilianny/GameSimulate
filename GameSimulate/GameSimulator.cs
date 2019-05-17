@@ -5,7 +5,7 @@ using GameSimulate.Enums;
 using GameSimulate.Factories;
 using GameSimulate.Interfaces;
 
-namespace GameSimulate.Common
+namespace GameSimulate
 {
     public class GameSimulator
     {
@@ -16,6 +16,7 @@ namespace GameSimulate.Common
             _gameFactories=new Dictionary<Sport, GameFactory>();
             
             PlayerCreator = new PlayerCreator();
+            TeamCreator = new TeamCreator();
 
             foreach (Sport sport in Enum.GetValues(typeof(Sport)))
             {
@@ -40,5 +41,6 @@ namespace GameSimulate.Common
         }
 
         public PlayerCreator PlayerCreator { get; }
+        public TeamCreator TeamCreator { get; }
     }
 }
