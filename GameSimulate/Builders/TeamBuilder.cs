@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 using System.Collections.Generic;
 using System.Linq;
 using GameSimulate.Interfaces;
@@ -30,5 +31,12 @@ namespace GameSimulate.Builders
         
         public abstract ITeam Build(int power);
         public abstract ITeam Build(IEnumerable<IPlayer> roster);
+=======
+namespace GameSimulate.Builders
+{
+    public class TeamBuilder
+    {
+        
+>>>>>>> Stashed changes
     }
 }

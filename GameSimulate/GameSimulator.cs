@@ -41,6 +41,10 @@ namespace GameSimulate
         }
 
         public PlayerCreator PlayerCreator { get; }
+<<<<<<< Updated upstream:GameSimulate/GameSimulator.cs
         public TeamCreator TeamCreator { get; }
+=======
+
+>>>>>>> Stashed changes:GameSimulate/Common/GameSimulator.cs
     }
 }

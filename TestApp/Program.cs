@@ -18,7 +18,10 @@ namespace TestApp
         {
             
             _simulator = GameSimulator.Initialize();
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         }
 
     }
