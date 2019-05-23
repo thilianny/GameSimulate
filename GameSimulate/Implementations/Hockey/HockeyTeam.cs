@@ -3,11 +3,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using GameSimulate.Interfaces;
 
-namespace GameSimulate.Hockey
+namespace GameSimulate.Implementations.Hockey
 {
     public class HockeyTeam : ITeam
     {
-        public HockeyTeam(string name, int power, string country, string city)
+        internal HockeyTeam(string name, int power, string country, string city)
         {
             Name = name;
             Power = power;
@@ -15,7 +15,7 @@ namespace GameSimulate.Hockey
             City = city;
         }
         
-        public HockeyTeam(string name, string country, string city, IEnumerable<IPlayer> roster)
+        internal HockeyTeam(string name, string country, string city, IEnumerable<IPlayer> roster)
         {
             Name = name;
             Country = country;

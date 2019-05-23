@@ -1,13 +1,11 @@
 using System;
-using System.Collections.Generic;
-using GameSimulate.Enums;
- using GameSimulate.Interfaces;
- 
- namespace GameSimulate.Hockey
+using GameSimulate.Interfaces;
+
+namespace GameSimulate.Implementations.Hockey
  {
      public class HockeyPlayer : IPlayer
      {
-         public HockeyPlayer(string name, int power, string country, DateTime birthdate)
+         internal HockeyPlayer(string name, int power, string country, DateTime? birthdate)
          {
              Name = name;
              Power = power;
@@ -18,6 +16,6 @@ using GameSimulate.Enums;
          public string Name { get; }
          public int Power { get; }
          public string Country { get; }
-         public DateTime Birthdate { get; }
+         public DateTime? Birthdate { get; }
      }
  }

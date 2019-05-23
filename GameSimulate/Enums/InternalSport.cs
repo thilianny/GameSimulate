@@ -1,9 +1,13 @@
 namespace GameSimulate.Enums
 {
-    public enum Sport
+    internal enum TeamSport
     {
         Football,
-        Hockey,
+        Hockey
+    }
+
+    public enum RacingSport
+    {
         FormulaOne,
         Biathlon
     }

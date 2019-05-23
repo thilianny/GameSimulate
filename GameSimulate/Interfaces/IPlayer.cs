@@ -5,6 +5,6 @@ namespace GameSimulate.Interfaces
 {
     public interface IPlayer : IParticipant
     {
-        DateTime Birthdate { get; }
+        DateTime? Birthdate { get; }
     }
 }

@@ -3,11 +3,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using GameSimulate.Interfaces;
 
-namespace GameSimulate.Football
+namespace GameSimulate.Implementations.Football
 {
     public class FootballTeam : ITeam
     {
-        public FootballTeam(string name, int power, string country, string city)
+        internal FootballTeam(string name, int power, string country, string city)
         {
             Name = name;
             Power = power;
@@ -15,7 +15,7 @@ namespace GameSimulate.Football
             City = city;
         }
         
-        public FootballTeam(string name, string country, string city, IEnumerable<IPlayer> roster)
+        internal FootballTeam(string name, string country, string city, IEnumerable<IPlayer> roster)
         {
             Name = name;
             Country = country;

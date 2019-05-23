@@ -6,6 +6,6 @@ namespace GameSimulate.Interfaces
     {
         void Simulate();
         
-        DateTime Date { get; }
+        DateTime? Date { get; }
     }
 }
