@@ -3,7 +3,7 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Implementations.FormulaOne
 {
-    public class FormulaOnePlayer : IPlayer
+    public class FormulaOnePlayer : IRacer
     {
         public FormulaOnePlayer(string name, int power, string country, DateTime? birthdate)
         {

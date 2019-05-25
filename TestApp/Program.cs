@@ -1,6 +1,7 @@
 ﻿using System;
 using GameSimulate.Creators;
 using GameSimulate.Enums;
+using GameSimulate.Implementations;
 
 namespace TestApp
 {
@@ -29,7 +30,11 @@ namespace TestApp
 
             var x = 0;*/
             var p = PlayerCreator.CreateSimple(Sport.Hockey, "Pesduke", 81);
-            var y = 0;
+            
+            var cristiano = PlayerCreator.CreateSimple(Sport.Football, "Cristiano Ronaldo", 92);
+            var pers2 = PlayerCreator.CreateSimple(Sport.Hockey, "Cristiano Ronaldoss", 92);
+            var pers = PlayerCreator.CreateSimple(Sport.Football, "Cristiano Ronaldos", 92);
+
 
         }
 
