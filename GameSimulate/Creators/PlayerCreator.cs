@@ -5,21 +5,26 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Creators
 {
-    public static class PlayerCreator
+    public class PlayerCreator
     {
-        public static IPlayer CreateSimple(Sport sport, string name, int power)
+        private readonly ISport _sport;
+        internal PlayerCreator(ISport sport)
         {
-            var sportName = Enum.GetName(typeof(Sport), sport);
+            _sport = sport;
+        }
+        
+        public IPlayer CreateSimple(string name, int power)
+        {
+            var sportName = _sport.GetType().Name;
             var builder = (PlayerBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}PlayerBuilder"), true);
 
             return builder.Build(name, power);
         }
 
-        public static PlayerBuilder InitializeBuilder(Sport sport)
+        public PlayerBuilder InitializeBuilder()
         {
-            var sportName = Enum.GetName(typeof(Sport), sport);
-
+            var sportName = _sport.GetType().Name;
             return (PlayerBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}PlayerBuilder"), true);
         }

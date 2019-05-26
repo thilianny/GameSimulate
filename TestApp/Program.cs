@@ -1,7 +1,13 @@
-﻿using System;
+using System;
+using System.ComponentModel;
+using System.Net.WebSockets;
+using System.Threading.Tasks.Sources;
+using GameSimulate;
 using GameSimulate.Creators;
 using GameSimulate.Enums;
 using GameSimulate.Implementations;
+using GameSimulate.Implementations.Football;
+using GameSimulate.Interfaces;
 
 namespace TestApp
 {
@@ -29,11 +35,17 @@ namespace TestApp
                 .Build("Sebastian Vettel", 90);
 
             var x = 0;*/
-            var p = PlayerCreator.CreateSimple(Sport.Hockey, "Pesduke", 81);
-            
-            var cristiano = PlayerCreator.CreateSimple(Sport.Football, "Cristiano Ronaldo", 92);
-            var pers2 = PlayerCreator.CreateSimple(Sport.Hockey, "Cristiano Ronaldoss", 92);
-            var pers = PlayerCreator.CreateSimple(Sport.Football, "Cristiano Ronaldos", 92);
+
+            var footballSession = Session.Open(Sport.Football);
+            Console.WriteLine(footballSession.Id);
+            var hockeySession = Session.Open(Sport.Hockey);
+            Console.WriteLine(hockeySession.Id);
+            var cristiano = footballSession.PlayerCreator.CreateSimple("Cristiano Ronaldo", 92);
+
+            var tampa = hockeySession.TeamCreator.CreateSimple(("Tampa Bay Lightning"), 93);
+
+            int x = 0;
+
 
 
         }

@@ -5,20 +5,25 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Creators
 {
-    public static class TeamCreator
+    public class TeamCreator
     {
-        public static ITeam CreateSimple(Sport sport, string name, int power)
+        private readonly ISport _sport;
+        internal TeamCreator(ISport sport)
         {
-            var sportName = Enum.GetName(typeof(Sport), sport);
+            _sport = sport;
+        }
+        public ITeam CreateSimple(string name, int power)
+        {
+            var sportName = _sport.GetType().Name;
             var builder = (TeamBuilder) Activator.CreateInstance(
                     Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}TeamBuilder"), true);
 
             return builder.SetName(name).Build(power);
         }
         
-        public static TeamBuilder InitializeBuilder(Sport sport)
+        public TeamBuilder InitializeBuilder()
         {
-            var sportName = Enum.GetName(typeof(Sport), sport);
+            var sportName = _sport.GetType().Name;
             return (TeamBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}TeamBuilder"), true);
         }

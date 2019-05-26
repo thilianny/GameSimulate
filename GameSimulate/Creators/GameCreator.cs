@@ -5,8 +5,13 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Creators
 {
-    public static class GameCreator
+    public class GameCreator
     {
+        internal GameCreator()
+        {
+            
+        }
+        
         public static GameBuilder InitializeBuilder() => new GameBuilder();
     }
 }
