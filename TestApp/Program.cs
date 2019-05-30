@@ -15,41 +15,17 @@ namespace TestApp
     {
         private static void Main(string[] args)
         {
-            /*var cristiano = PlayerCreator.CreateSimple(Sport.Team.Football, "Cristiano Ronaldo", 92);
+            var tampa = TeamCreator.Create(TeamSport.Hockey, "Tampa Bay Lightning", 93);
+            var boston = TeamCreator.Create(TeamSport.Hockey, "Boston Bruins", 93);
 
-            var kuch = PlayerCreator
-                .InitializeBuilder(Sport.Team.Hockey)
-                .SetBirthdate(DateTime.Now)
-                .SetCountry("Russia")
-                .Build("Nikita Kucherov", 92);
+            var game = GameCreator.CreateTeamGame(tampa, boston);
             
-            var home = TeamCreator.CreateSimple(Sport.Team.Hockey, "Tampa Bay Lightning", 92);
-            var away = TeamCreator.CreateSimple(Sport.Team.Hockey, "St. Louis Blues", 93);
-
-            var hamilton = PlayerCreator.CreateSimple(Sport.Team.Hockey, "Lewis Hamilton", 90);
-
-            var vettel = PlayerCreator
-                .InitializeBuilder(Sport.Team.Hockey)
-                .SetBirthdate(DateTime.Now)
-                .SetCountry("Germany")
-                .Build("Sebastian Vettel", 90);
-
-            var x = 0;*/
-
-            var footballSession = Session.Open(Sport.Football);
-            Console.WriteLine(footballSession.Id);
-            var hockeySession = Session.Open(Sport.Hockey);
-            Console.WriteLine(hockeySession.Id);
-            var cristiano = footballSession.PlayerCreator.CreateSimple("Cristiano Ronaldo", 92);
-
-            var tampa = hockeySession.TeamCreator.CreateSimple(("Tampa Bay Lightning"), 93);
-
-            int x = 0;
-
-
+            Simulator.Execute(game);
 
         }
 
     }
+
+   
 
 }

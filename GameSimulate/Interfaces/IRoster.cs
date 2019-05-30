@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using GameSimulate.Enums;
 
 namespace GameSimulate.Interfaces
 {
-    public interface IParticipant
+    public interface IRoster
     {
-        
+        IEnumerable<IParticipant> Participants { get; }
     }
 }

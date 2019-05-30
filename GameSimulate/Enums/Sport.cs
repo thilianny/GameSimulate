@@ -7,4 +7,16 @@ namespace GameSimulate.Enums
         FormulaOne,
         Biathlon
     }
+
+    public enum RacingSport
+    {
+        FormulaOne,
+        Biathlon
+    }
+
+    public enum TeamSport
+    {
+        Football,
+        Hockey
+    }
 }

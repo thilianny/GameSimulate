@@ -14,13 +14,7 @@ namespace GameSimulate.Implementations.Hockey
 
         public void Simulate()
         {
-            if (Home == null || Away == null)
-            {
-                Console.WriteLine($"Can't start game without two hockey teams.");
-                return;
-            }
-
-            Console.WriteLine($"{Date:dd MMMM yyyy}: hockey game played");
+            Console.WriteLine($"Hockey game played");
         }
 
         public DateTime? Date { get; }

@@ -5,13 +5,22 @@ using GameSimulate.Interfaces;
 
 namespace GameSimulate.Creators
 {
-    public class GameCreator
+    public static class GameCreator
     {
-        internal GameCreator()
+        public static TeamGameBuilder InitializeTeamGameBuilder(TeamSport sport)
         {
-            
+            var sportName = Enum.GetName(typeof(Sport), sport);
+            return (TeamGameBuilder) Activator.CreateInstance(
+                Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}GameBuilder"), true);
         }
         
-        public static GameBuilder InitializeBuilder() => new GameBuilder();
+        public static ITeamGame CreateTeamGame(ITeam home, ITeam away)
+        {
+            var sportName = home.GetType().Name.Replace("Team", "");
+            var builder = (TeamGameBuilder) Activator.CreateInstance(
+                Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}GameBuilder"), true);
+
+            return builder.Build(home, away);
+        }
     }
 }
