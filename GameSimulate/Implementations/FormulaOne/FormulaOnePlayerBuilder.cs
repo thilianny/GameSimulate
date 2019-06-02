@@ -1,5 +1,5 @@
+using GameSimulate.Abstractions;
 using GameSimulate.Builders;
-using GameSimulate.Interfaces;
 
 namespace GameSimulate.Implementations.FormulaOne
 {
@@ -9,6 +9,6 @@ namespace GameSimulate.Implementations.FormulaOne
         {
             
         }
-        public override IPlayer Build(string name, int power) => new FormulaOnePlayer(name, power, Country, Birthdate);
+        public override Player Build(string name, int power) => new FormulaOnePlayer(name, power, Country, Birthdate);
     }
 }

@@ -1,13 +1,13 @@
 using System;
+using GameSimulate.Abstractions;
 using GameSimulate.Builders;
 using GameSimulate.Enums;
-using GameSimulate.Interfaces;
 
 namespace GameSimulate.Creators
 {
     public static class PlayerCreator
     {   
-        public static IPlayer Create(Sport sport, string name, int power)
+        public static Player Create(Sport sport, string name, int power)
         {
             var sportName = Enum.GetName(typeof(Sport), sport);
             var builder = (PlayerBuilder) Activator.CreateInstance(

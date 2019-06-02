@@ -1,5 +1,5 @@
+using GameSimulate.Abstractions;
 using GameSimulate.Builders;
-using GameSimulate.Interfaces;
 
 namespace GameSimulate.Implementations.Hockey
 {
@@ -10,6 +10,6 @@ namespace GameSimulate.Implementations.Hockey
             
         }
         
-        public override IPlayer Build(string name, int power) => new HockeyPlayer(name, power, Country, Birthdate);
+        public override Player Build(string name, int power) => new HockeyPlayer(name, power, Country, Birthdate);
     }
 }

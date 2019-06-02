@@ -1,34 +1,16 @@
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using GameSimulate.Interfaces;
+using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Football
 {
-    public class FootballTeam : ITeam
+    public class FootballTeam : Team
     {
-        internal FootballTeam(string name, int power, string country, string city)
+        internal FootballTeam(string name, string country, string city, IEnumerable<Player> roster) : base(name, country, city, roster)
         {
-            Name = name;
-            Power = power;
-            Country = country;
-            City = city;
-        }
-        
-        internal FootballTeam(string name, string country, string city, IEnumerable<IPlayer> roster)
-        {
-            Name = name;
-            Country = country;
-            City = city;
-            Roster = roster.ToList().AsReadOnly();
-            
-            Power = !Roster.Any() ? 0 : Roster.Sum(player => player.Power) / Roster.Count();
         }
 
-        public string Name { get; }
-        public int Power { get; }
-        public string Country { get; }
-        public string City { get; }
-        public ReadOnlyCollection<IPlayer> Roster { get; }
+        internal FootballTeam(string name, string country, string city, int power) : base(name, country, city, power)
+        {
+        }
     }
 }

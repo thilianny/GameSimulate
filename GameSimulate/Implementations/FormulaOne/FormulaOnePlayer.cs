@@ -1,21 +1,13 @@
 using System;
-using GameSimulate.Interfaces;
+using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.FormulaOne
 {
-    public class FormulaOnePlayer : IRacer
+    public class FormulaOnePlayer : Player
     {
-        public FormulaOnePlayer(string name, int power, string country, DateTime? birthdate)
+        public FormulaOnePlayer(string name, int power, string country, DateTime? birthdate) : base(name, power,
+            country, birthdate)
         {
-            Name = name;
-            Power = power;
-            Country = country;
-            Birthdate = birthdate;
         }
-
-        public string Name { get; }
-        public int Power { get; }
-        public string Country { get; }
-        public DateTime? Birthdate { get; }
     }
 }

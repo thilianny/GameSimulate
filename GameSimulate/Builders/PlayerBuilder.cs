@@ -1,5 +1,5 @@
 using System;
-using GameSimulate.Interfaces;
+using GameSimulate.Abstractions;
 
 namespace GameSimulate.Builders
 {
@@ -20,6 +20,6 @@ namespace GameSimulate.Builders
             return this;
         }
 
-        public abstract IPlayer Build(string name, int power);
+        public abstract Player Build(string name, int power);
     }
 }

@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net.WebSockets;
 using System.Threading.Tasks.Sources;
 using GameSimulate;
+using GameSimulate.Abstractions;
 using GameSimulate.Creators;
 using GameSimulate.Enums;
 using GameSimulate.Implementations;
@@ -15,12 +17,14 @@ namespace TestApp
     {
         private static void Main(string[] args)
         {
-            var tampa = TeamCreator.Create(TeamSport.Hockey, "Tampa Bay Lightning", 93);
+            /*var tampa = TeamCreator.Create(TeamSport.Hockey, "Tampa Bay Lightning", 93);
             var boston = TeamCreator.Create(TeamSport.Hockey, "Boston Bruins", 93);
 
             var game = GameCreator.CreateTeamGame(tampa, boston);
             
-            Simulator.Execute(game);
+            Simulator.Execute(game);*/
+            
+            var x = new TeamRoster<FootballPlayer>();
 
         }
 

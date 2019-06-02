@@ -1,21 +1,13 @@
 using System;
-using GameSimulate.Interfaces;
+using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Hockey
  {
-     public class HockeyPlayer : IPlayer
+     public class HockeyPlayer : Player
      {
-         internal HockeyPlayer(string name, int power, string country, DateTime? birthdate)
+         public HockeyPlayer(string name, int power, string country, DateTime? birthdate) : base(name, power, country,
+             birthdate)
          {
-             Name = name;
-             Power = power;
-             Country = country;
-             Birthdate = birthdate;
          }
-
-         public string Name { get; }
-         public int Power { get; }
-         public string Country { get; }
-         public DateTime? Birthdate { get; }
      }
  }

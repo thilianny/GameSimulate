@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using GameSimulate.Abstractions;
 using GameSimulate.Interfaces;
 
 namespace GameSimulate.Builders
@@ -28,7 +29,7 @@ namespace GameSimulate.Builders
             return this;
         }
 
-        public abstract ITeam Build(int power);
-        public abstract ITeam Build(IEnumerable<IPlayer> roster);
+        public abstract Team Build(int power);
+        public abstract Team Build(IEnumerable<Player> roster);
     }
 }
