@@ -8,11 +8,11 @@ namespace GameSimulate.Creators
 {
     public static class RosterCreator
     {
-        public static IEnumerable<Player> InitializeTeamRoster(TeamSport sport)
+       /* public static IEnumerable<Player> InitializeTeamRoster(TeamSport sport)
         {
             var sportName = Enum.GetName(typeof(Sport), sport);
             Type type = Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}Player");
             return new List<type>();
-        }
+        }*/
     }
 }

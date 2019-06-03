@@ -6,11 +6,25 @@ namespace GameSimulate.Builders
     public abstract class PlayerBuilder
     {
         protected string Country;
+        protected string City;
         protected DateTime? Birthdate;
+
+        internal Session Session;
+
+        internal PlayerBuilder()
+        {
+            
+        }
 
         public PlayerBuilder SetCountry(string country)
         {
             Country = country;
+            return this;
+        }
+        
+        public PlayerBuilder SetCity(string city)
+        {
+            City = city;
             return this;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using GameSimulate.Abstractions;
 using GameSimulate.Builders;
 using GameSimulate.Enums;
 using GameSimulate.Interfaces;
@@ -7,7 +8,7 @@ namespace GameSimulate.Creators
 {
     public static class TeamCreator
     {
-        public static ITeam Create(TeamSport sport, string name, int power)
+        public static Team Create(TeamSport sport, string name, int power)
         {
             var sportName = Enum.GetName(typeof(Sport), sport);
             var builder = (TeamBuilder) Activator.CreateInstance(

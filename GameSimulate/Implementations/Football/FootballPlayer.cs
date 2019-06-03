@@ -5,8 +5,8 @@ namespace GameSimulate.Implementations.Football
 {
     public class FootballPlayer : Player
     {
-        public FootballPlayer(string name, int power, string country, DateTime? birthdate) : base(name, power, country,
-            birthdate)
+        public FootballPlayer(string name, int power, string country, string city, DateTime? birthdate) : base(name,
+            power, country, city, birthdate)
         {
         }
     }

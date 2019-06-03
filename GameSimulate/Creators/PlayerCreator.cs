@@ -1,26 +1,39 @@
 using System;
+using System.Reflection;
 using GameSimulate.Abstractions;
 using GameSimulate.Builders;
 using GameSimulate.Enums;
 
 namespace GameSimulate.Creators
 {
-    public static class PlayerCreator
-    {   
-        public static Player Create(Sport sport, string name, int power)
+    public class PlayerCreator
+    {
+        private readonly Session _session;
+        private readonly string sportName;
+
+        internal PlayerCreator(Session session)
         {
-            var sportName = Enum.GetName(typeof(Sport), sport);
+            _session = session;
+            sportName = Enum.GetName(typeof(Sport), _session.Sport);
+
+        }
+        
+        public Player Create(string name, int power)
+        {
             var builder = (PlayerBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}PlayerBuilder"), true);
 
-            return builder.Build(name, power);
+            var player = builder.Build(name, power);
+            _session.Players.Add(player);
+            return player;
         }
 
-        public static PlayerBuilder InitializeBuilder(Sport sport)
+        public PlayerBuilder InitializeBuilder()
         {
-            var sportName = Enum.GetName(typeof(Sport), sport);
-            return (PlayerBuilder) Activator.CreateInstance(
+            var builder = (PlayerBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}PlayerBuilder"), true);
+            builder.Session = _session;
+            return builder;
         }
     }
 }

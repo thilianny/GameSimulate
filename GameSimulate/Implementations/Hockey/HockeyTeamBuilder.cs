@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using GameSimulate.Abstractions;
 using GameSimulate.Builders;
 using GameSimulate.Interfaces;
 
@@ -12,9 +13,9 @@ namespace GameSimulate.Implementations.Hockey
             
         }
         
-        public override ITeam Build(int power) => new HockeyTeam(Name, power, Country, City);
+        public override Team Build(int power) => new HockeyTeam(Name, Country, City, power);
 
-        public override ITeam Build(IEnumerable<IPlayer> roster) =>
-            new HockeyTeam(Name, Country, City, roster.Where(player => player is HockeyPlayer));
+        public override Team Build(IEnumerable<Player> roster) => new HockeyTeam(Name, Country, City,
+            roster.Where(player => player is HockeyPlayer));
     }
 }

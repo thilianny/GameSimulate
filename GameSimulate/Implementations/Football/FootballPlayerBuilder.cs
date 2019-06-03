@@ -9,7 +9,12 @@ namespace GameSimulate.Implementations.Football
         {
             
         }
-
-        public override Player Build(string name, int power) => new FootballPlayer(name, power, Country, Birthdate);
+        
+        public override Player Build(string name, int power)
+        {
+            var player = new FootballPlayer(name, power, Country, City, Birthdate);
+            Session?.Players.Add(player);
+            return player;
+        }
     }
 }

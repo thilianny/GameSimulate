@@ -9,6 +9,12 @@ namespace GameSimulate.Implementations.FormulaOne
         {
             
         }
-        public override Player Build(string name, int power) => new FormulaOnePlayer(name, power, Country, Birthdate);
+
+        public override Player Build(string name, int power)
+        {
+            var player = new FormulaOnePlayer(name, power, Country, City, Birthdate);
+            Session.Players.Add(player);
+            return player;
+        }
     }
 }

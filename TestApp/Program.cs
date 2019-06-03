@@ -7,6 +7,7 @@ using GameSimulate;
 using GameSimulate.Abstractions;
 using GameSimulate.Creators;
 using GameSimulate.Enums;
+using GameSimulate.Exceptions;
 using GameSimulate.Implementations;
 using GameSimulate.Implementations.Football;
 using GameSimulate.Interfaces;
@@ -23,8 +24,17 @@ namespace TestApp
             var game = GameCreator.CreateTeamGame(tampa, boston);
             
             Simulator.Execute(game);*/
+
+            var f = Simulator.OpenSession(Sport.Football);
+            var cristiano = f.PlayerCreator.Create("Cristiano Ronaldo", 93);
+
+            var messi = f.PlayerCreator
+                .InitializeBuilder()
+                .SetCountry("Argentina")
+                .SetCity("Buenos Aires")
+                .Build("Lionel Messi", 93);
             
-            var x = new TeamRoster<FootballPlayer>();
+            int s = 0;
 
         }
 

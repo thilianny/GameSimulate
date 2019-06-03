@@ -13,9 +13,9 @@ namespace GameSimulate.Implementations.Football
             
         }
         
-        public override ITeam Build(int power) => new FootballTeam(Name, Country, City, power);
+        public override Team Build(int power) => new FootballTeam(Name, Country, City, power);
 
-        public override ITeam Build(IEnumerable<Player> roster) => new FootballTeam(Name, Country, City,
+        public override Team Build(IEnumerable<Player> roster) => new FootballTeam(Name, Country, City,
             roster.Where(player => player is FootballPlayer));
     }
 }
