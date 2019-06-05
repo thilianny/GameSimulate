@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using GameSimulate.Abstractions;
 using GameSimulate.Creators;
 using GameSimulate.Enums;
 
-namespace GameSimulate
+namespace GameSimulate.Sessions
 {
-    public class Session
+    public abstract class Session
     {
         public DateTime Opened { get; } = DateTime.Now;
         public DateTime? Closed { get; private set; }
@@ -16,15 +15,15 @@ namespace GameSimulate
         public List<Player> Players { get; }
 
         public Guid Id { get; } = Guid.NewGuid();
-        public Sport Sport { get; }
+        public Sport Sport { get; internal set; }
 
         public bool IsActive { get; private set; } = true;
         
         public PlayerCreator PlayerCreator { get; }
+        
 
-        internal Session(Sport sport)
+        protected Session()
         {
-            Sport = sport;
             var sportName = Enum.GetName(typeof(Sport), Sport);
             //InitializePlayersList(sportName);
             PlayerCreator = new PlayerCreator(this);

@@ -13,7 +13,7 @@ namespace GameSimulate.Implementations.Hockey
         public override Player Build(string name, int power)
         {
             var player = new HockeyPlayer(name, power, Country, City, Birthdate);
-            Session.Players.Add(player);
+            Session?.Players.Add(player);
             return player;
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using GameSimulate.Enums;
 
 namespace GameSimulate.Abstractions
 {
@@ -9,7 +10,7 @@ namespace GameSimulate.Abstractions
         // team with roster
         protected Team(string name, string country, string city, IEnumerable<Player> roster) : base(name, country, city)
         {
-            Roster = roster.ToList().AsReadOnly();
+            Roster = roster.ToList();
             Power = !Roster.Any() ? 0 : Roster.Sum(player => player.Power) / Roster.Count();
         }
         
@@ -18,7 +19,12 @@ namespace GameSimulate.Abstractions
         {
             Power = power;
         }
+
+        private void SignPlayer(Player player)
+        {
+            Roster.Add(player);
+        }
         
-        public ReadOnlyCollection<Player> Roster { get; }
+        public List<Player> Roster { get; }
     }
 }

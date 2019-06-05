@@ -11,6 +11,7 @@ namespace GameSimulate.Abstractions
             Birthdate = birthdate;
         }
 
+        public Team Team { get; internal set; } = null;
         public DateTime? Birthdate { get; }
     }
 }

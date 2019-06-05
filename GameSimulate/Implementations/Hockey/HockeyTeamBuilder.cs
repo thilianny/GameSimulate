@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GameSimulate.Abstractions;
 using GameSimulate.Builders;
-using GameSimulate.Interfaces;
+using GameSimulate.Sessions;
 
 namespace GameSimulate.Implementations.Hockey
 {
@@ -12,10 +12,19 @@ namespace GameSimulate.Implementations.Hockey
         {
             
         }
-        
-        public override Team Build(int power) => new HockeyTeam(Name, Country, City, power);
 
-        public override Team Build(IEnumerable<Player> roster) => new HockeyTeam(Name, Country, City,
-            roster.Where(player => player is HockeyPlayer));
+        public override Team Build(string name, int power)
+        {
+            var team = new HockeyTeam(name, Country, City, power);
+            ((TeamSession) Session)?.Teams.Add(team);
+            return team;
+        }
+
+        public override Team Build(string name, IEnumerable<Player> roster)
+        {
+            var team = new HockeyTeam(name, Country, City, roster.Where(player => player is HockeyPlayer));
+            ((TeamSession) Session)?.Teams.Add(team);
+            return team;
+        }
     }
 }
