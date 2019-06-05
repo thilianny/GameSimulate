@@ -25,6 +25,7 @@ namespace GameSimulate
             session = (Session) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Sessions.{sportType}Session"), true);
             session.Sport = sport;
+            session.InitializeCreators();
             Sessions.Add(session);
             return session;
         }

@@ -19,16 +19,18 @@ namespace GameSimulate.Sessions
 
         public bool IsActive { get; private set; } = true;
         
-        public PlayerCreator PlayerCreator { get; }
+        public PlayerCreator PlayerCreator { get; protected set; }
         
 
         protected Session()
         {
             var sportName = Enum.GetName(typeof(Sport), Sport);
             //InitializePlayersList(sportName);
-            PlayerCreator = new PlayerCreator(this);
+            
             Players = new List<Player>();
         }
+
+        internal abstract void InitializeCreators();
         
 
         /*private void InitializePlayersList(string sport)
