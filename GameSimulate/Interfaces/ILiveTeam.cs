@@ -1,7 +1,7 @@
 namespace GameSimulate.Interfaces
 {
-    public interface IRacer : IPlayer
+    public interface ILiveTeam
     {
-        
+       
     }
 }

@@ -1,5 +1,3 @@
-using GameSimulate.Sessions;
-
 namespace GameSimulate.Abstractions
 {
     public abstract class ParticipantBuilder<TParticipant, TBuilder> : Builder
@@ -10,8 +8,6 @@ namespace GameSimulate.Abstractions
         protected string City;
 
         protected abstract TBuilder BuilderInstance { get; }
-
-        internal Session Session;
 
         public TBuilder SetCountry(string country)
         {
@@ -25,6 +21,6 @@ namespace GameSimulate.Abstractions
             return BuilderInstance;
         }
 
-        public abstract TParticipant Build(string name, int power);
+        public abstract TParticipant Build(string name, int power = 0);
     }
 }

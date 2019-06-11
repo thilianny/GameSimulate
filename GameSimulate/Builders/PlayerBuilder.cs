@@ -1,6 +1,5 @@
 using System;
 using GameSimulate.Abstractions;
-using GameSimulate.Sessions;
 
 namespace GameSimulate.Builders
 {

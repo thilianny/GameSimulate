@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using GameSimulate.Implementations.Football;
-using GameSimulate.Implementations.Hockey;
-using GameSimulate.Interfaces;
 
 namespace GameSimulate.Builders
 {
