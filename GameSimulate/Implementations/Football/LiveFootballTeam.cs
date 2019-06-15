@@ -10,7 +10,7 @@ namespace GameSimulate.Implementations.Football
         public LiveFootballTeam(Team team) : base(team)
         {
             foreach (var player in team.Roster)
-                _squad.Add(new LiveFootballPlayer(player));
+                _lineup.Add(new LiveFootballPlayer(player));
         }
 
         private int _shots = 0;
@@ -19,9 +19,9 @@ namespace GameSimulate.Implementations.Football
         {
             get
             {
-                var footballSquad = (List<LiveFootballPlayer>)_squad.Where(p => p is LiveFootballPlayer);
-                if (!footballSquad.Any()) return _shots;
-                return footballSquad.Sum(p => p.Shots) / footballSquad.Count;
+                var footballLineup = (List<LiveFootballPlayer>)_lineup.Where(p => p is LiveFootballPlayer);
+                if (!footballLineup.Any()) return _shots;
+                return footballLineup.Sum(p => p.Shots) / footballLineup.Count;
             }
         }
     }

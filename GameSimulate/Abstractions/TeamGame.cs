@@ -4,11 +4,14 @@ namespace GameSimulate.Abstractions
 {
     public abstract class TeamGame : Game
     {
-        public TeamGame(DateTime? date) : base(date)
+        protected TeamGame(LiveTeam home, LiveTeam away, DateTime? date = null) : base(date)
         {
+            Home = home;
+            Away = away;
         }
 
-        //public Team Home { get; }
+        public LiveTeam Home { get; }
+        public LiveTeam Away { get; }
 
         internal abstract override void Simulate();
     }

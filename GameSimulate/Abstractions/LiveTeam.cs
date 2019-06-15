@@ -12,23 +12,23 @@ namespace GameSimulate.Abstractions
         {
             _team = team;
             _power = _team.Power;
-            _squad = new List<LivePlayer>();
+            _lineup = new List<LivePlayer>();
         }
 
         public string Name => _team.Name;
         public string Country => _team.Country;
 
-        protected List<LivePlayer> _squad;
-        public ReadOnlyCollection<LivePlayer> Squad => _squad.AsReadOnly();
+        protected List<LivePlayer> _lineup;
+        public ReadOnlyCollection<LivePlayer> Lineup => _lineup.AsReadOnly();
 
         private int _power;
         public int Power
         {
             get
             {
-                var activeSquad = _squad.Where(p => p.IsActive).ToList();
-                if (!activeSquad.Any()) return _power;
-                return activeSquad.Sum(p => p.Power) / activeSquad.Count;
+                var activeLineup = _lineup.Where(p => p.IsActive).ToList();
+                if (!activeLineup.Any()) return _power;
+                return activeLineup.Sum(p => p.Power) / activeLineup.Count;
             }
         }
     }

@@ -11,10 +11,11 @@ namespace TestApp
         private static void Main(string[] args)
         {
             var real = TeamCreator.Create(TeamSport.Football, "Real Madrid FC", 95);
-            var kuch = PlayerCreator.Create(Sport.Hockey, "Nikita Kucherov", 90);
+            var barca = TeamCreator.Create(TeamSport.Football, "FC Barcelona", 93);
 
-            var reallive=new LiveFootballTeam(real);
-            //reallive.Squad.Add()
+            var clasico = GameCreator.CreateTeamGame(real, barca);
+
+            int s = 0;
 
         }
 
