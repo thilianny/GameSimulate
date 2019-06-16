@@ -3,9 +3,10 @@ using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Football
 {
-    public class FootballGame : TeamGame
+    public class FootballGame : TeamGame<LiveFootballPlayer>
     {
-        public FootballGame(LiveTeam home, LiveTeam away, DateTime? date = null) : base(home, away, date)
+        public FootballGame(LiveFootballTeam home, LiveFootballTeam away, DateTime? date = null) : base(home, away,
+            date)
         {
         }
 

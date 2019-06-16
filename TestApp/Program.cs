@@ -13,9 +13,11 @@ namespace TestApp
             var real = TeamCreator.Create(TeamSport.Football, "Real Madrid FC", 95);
             var barca = TeamCreator.Create(TeamSport.Football, "FC Barcelona", 93);
 
-            var clasico = GameCreator.CreateTeamGame(real, barca);
+            var clasico = GameCreator.TeamGame.Create(real, barca);
 
-            int s = 0;
+            int x = 0;
+
+
 
         }
 

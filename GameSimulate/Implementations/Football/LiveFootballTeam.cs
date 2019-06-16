@@ -5,7 +5,7 @@ using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Football
 {
-    public class LiveFootballTeam : LiveTeam
+    public class LiveFootballTeam : LiveTeam<LiveFootballPlayer>
     {
         public LiveFootballTeam(Team team) : base(team)
         {
@@ -19,9 +19,8 @@ namespace GameSimulate.Implementations.Football
         {
             get
             {
-                var footballLineup = (List<LiveFootballPlayer>)_lineup.Where(p => p is LiveFootballPlayer);
-                if (!footballLineup.Any()) return _shots;
-                return footballLineup.Sum(p => p.Shots) / footballLineup.Count;
+                if (!_lineup.Any()) return _shots;
+                return _lineup.Sum(p => p.Shots) / _lineup.Count;
             }
         }
     }

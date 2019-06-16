@@ -2,10 +2,14 @@ using GameSimulate.Abstractions;
 
 namespace GameSimulate.Builders
 {
-    public abstract class TeamGameBuilder : GameBuilder<TeamGame, TeamGameBuilder>
+    public abstract class
+        TeamGameBuilder<TLivePlayer> : GameBuilder<TeamGame<TLivePlayer>, TeamGameBuilder<TLivePlayer>>
+        where TLivePlayer : LivePlayer
     {
-        protected override TeamGameBuilder BuilderInstance => this;
+        protected override TeamGameBuilder<TLivePlayer> BuilderInstance => this;
 
-        public abstract TeamGame Build(Team home, Team away);
+        public abstract TeamGame<TLivePlayer> Build(Team home, Team away);
     }
+
+
 }

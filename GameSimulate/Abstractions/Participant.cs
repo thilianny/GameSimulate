@@ -16,6 +16,6 @@ namespace GameSimulate.Abstractions
         public string City { get; }
         
         public abstract int Power { get; }
-        protected int Pow;
+        internal int Pow;
     }
 }

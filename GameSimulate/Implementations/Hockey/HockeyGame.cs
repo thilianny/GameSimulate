@@ -3,9 +3,9 @@ using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Hockey
 {
-    public class HockeyGame : TeamGame
+    public class HockeyGame : TeamGame<LiveHockeyPlayer>
     {
-        public HockeyGame(LiveTeam home, LiveTeam away, DateTime? date = null) : base(home, away, date)
+        public HockeyGame(LiveHockeyTeam home, LiveHockeyTeam away, DateTime? date = null) : base(home, away, date)
         {
         }
 

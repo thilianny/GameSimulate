@@ -4,22 +4,22 @@ using System.Linq;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class LiveTeam
+    public abstract class LiveTeam<T> where T : LivePlayer
     {
         private Team _team;
 
         public LiveTeam(Team team)
         {
             _team = team;
-            _power = _team.Power;
-            _lineup = new List<LivePlayer>();
+            _power = _team.Pow;
+            _lineup = new List<T>();
         }
 
         public string Name => _team.Name;
         public string Country => _team.Country;
 
-        protected List<LivePlayer> _lineup;
-        public ReadOnlyCollection<LivePlayer> Lineup => _lineup.AsReadOnly();
+        protected List<T> _lineup;
+        public ReadOnlyCollection<T> Lineup => _lineup.AsReadOnly();
 
         private int _power;
         public int Power
