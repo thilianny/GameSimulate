@@ -4,12 +4,15 @@ using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Hockey
 {
-    public class LiveHockeyTeam : LiveTeam<LiveHockeyPlayer>
+    public class LiveHockeyTeam : LiveTeam
     {
         public LiveHockeyTeam(Team team) : base(team)
         {
+            var lineup = new List<LiveHockeyPlayer>();
             foreach (var player in team.Roster)
-                _lineup.Add(new LiveHockeyPlayer(player));
+                lineup.Add(new LiveHockeyPlayer(player));
+            _lineup = lineup;
+            //IEnumerable<LivePlayer> x = new List<LiveHockeyPlayer>();
         }
 
         private int _shots = 0;
@@ -18,8 +21,8 @@ namespace GameSimulate.Implementations.Hockey
         {
             get
             {
-                if (!_lineup.Any()) return _shots;
-                return _lineup.Sum(p => p.Shots) / _lineup.Count;
+                var lineup = (List<LiveHockeyPlayer>) _lineup;
+                return !lineup.Any() ? _shots : lineup.Sum(p => p.Shots);
             }
         }
     }

@@ -3,14 +3,14 @@ using GameSimulate.Builders;
 
 namespace GameSimulate.Implementations.Hockey
 {
-    public class HockeyGameBuilder : TeamGameBuilder<LiveHockeyPlayer>
+    public class HockeyGameBuilder : TeamGameBuilder
     {
         internal HockeyGameBuilder()
         {
             
         }
 
-        public override TeamGame<LiveHockeyPlayer> Build(Team home, Team away) =>
+        public override TeamGame Build(Team home, Team away) =>
             new HockeyGame(new LiveHockeyTeam(home), new LiveHockeyTeam(away), Date);
     }
 }

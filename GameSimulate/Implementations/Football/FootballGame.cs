@@ -3,16 +3,23 @@ using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Football
 {
-    public class FootballGame : TeamGame<LiveFootballPlayer>
+    public sealed class FootballGame : TeamGame
     {
-        public FootballGame(LiveFootballTeam home, LiveFootballTeam away, DateTime? date = null) : base(home, away,
-            date)
+        internal FootballGame(LiveFootballTeam home, LiveFootballTeam away, DateTime? date = null) : base(home,
+            away, date)
         {
         }
 
-        internal override void Simulate()
+        protected override void RosterSimulate()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(
+                $"Simulated football game between {Home.Name} ({Home.Power}) and {Away.Name} ({Away.Power}). Used rosters");
+        }
+
+        protected override void PowerSimulate()
+        {
+            Console.WriteLine(
+                $"Simulated football game between {Home.Name} ({Home._power}) and {Away.Name} ({Away._power}). Used only powers");
         }
     }
 }

@@ -3,15 +3,20 @@ using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Hockey
 {
-    public class HockeyGame : TeamGame<LiveHockeyPlayer>
+    public class HockeyGame : TeamGame
     {
-        public HockeyGame(LiveHockeyTeam home, LiveHockeyTeam away, DateTime? date = null) : base(home, away, date)
+        internal HockeyGame(LiveTeam home, LiveTeam away, DateTime? date = null) : base(home, away, date)
         {
         }
-
-        internal override void Simulate()
+        
+        protected override void RosterSimulate()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Simulated hockey game between {Home.Name} and {Away.Name}. Used rosters");
+        }
+
+        protected override void PowerSimulate()
+        {
+            Console.WriteLine($"Simulated hockey game between {Home.Name} and {Away.Name}. Used only powers");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace GameSimulate.Abstractions
         protected LivePlayer(Player player)
         {
             _player = player;
-            IsActive = false;
+            IsActive = true;
         }
 
         public string Name => _player.Name;

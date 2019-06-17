@@ -3,12 +3,11 @@ using GameSimulate.Abstractions;
 namespace GameSimulate.Builders
 {
     public abstract class
-        TeamGameBuilder<TLivePlayer> : GameBuilder<TeamGame<TLivePlayer>, TeamGameBuilder<TLivePlayer>>
-        where TLivePlayer : LivePlayer
+        TeamGameBuilder : GameBuilder<TeamGame, TeamGameBuilder>
     {
-        protected override TeamGameBuilder<TLivePlayer> BuilderInstance => this;
+        protected override TeamGameBuilder BuilderInstance => this;
 
-        public abstract TeamGame<TLivePlayer> Build(Team home, Team away);
+        public abstract TeamGame Build(Team home, Team away);
     }
 
 

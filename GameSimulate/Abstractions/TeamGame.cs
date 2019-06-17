@@ -1,20 +1,28 @@
 using System;
-using GameSimulate.Builders;
-using GameSimulate.Enums;
+using System.Linq;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class TeamGame<T> : Game where T : LivePlayer
+    public abstract class TeamGame : Game
     {
-        protected TeamGame(LiveTeam<T> home, LiveTeam<T> away, DateTime? date = null) : base(date)
+        protected TeamGame(LiveTeam home, LiveTeam away, DateTime? date = null) : base(date)
         {
             Home = home;
             Away = away;
         }
 
-        public LiveTeam<T> Home { get; }
-        public LiveTeam<T> Away { get; }
+        public LiveTeam Home { get; }
+        public LiveTeam Away { get; }
 
-        internal abstract override void Simulate();
+        internal override void Simulate()
+        {
+            if (!Home.Lineup.Any() || !Away.Lineup.Any())
+                PowerSimulate();
+            else
+                RosterSimulate();
+        }
+
+        protected abstract void RosterSimulate();
+        protected abstract void PowerSimulate();
     }
 }

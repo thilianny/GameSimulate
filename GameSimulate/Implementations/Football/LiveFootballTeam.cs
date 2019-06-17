@@ -1,16 +1,17 @@
-using System.Buffers.Text;
 using System.Collections.Generic;
 using System.Linq;
 using GameSimulate.Abstractions;
 
 namespace GameSimulate.Implementations.Football
 {
-    public class LiveFootballTeam : LiveTeam<LiveFootballPlayer>
+    public class LiveFootballTeam : LiveTeam
     {
         public LiveFootballTeam(Team team) : base(team)
         {
+            var lineup = new List<LiveFootballPlayer>();
             foreach (var player in team.Roster)
-                _lineup.Add(new LiveFootballPlayer(player));
+                lineup.Add(new LiveFootballPlayer(player));
+            _lineup = lineup;
         }
 
         private int _shots = 0;
@@ -19,8 +20,8 @@ namespace GameSimulate.Implementations.Football
         {
             get
             {
-                if (!_lineup.Any()) return _shots;
-                return _lineup.Sum(p => p.Shots) / _lineup.Count;
+                var lineup = (List<LiveFootballPlayer>) _lineup;
+                return !lineup.Any() ? _shots : lineup.Sum(p => p.Shots);
             }
         }
     }

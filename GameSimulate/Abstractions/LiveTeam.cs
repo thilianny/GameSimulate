@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class LiveTeam<T> where T : LivePlayer
+    public abstract class LiveTeam
     {
         private Team _team;
 
@@ -12,16 +12,16 @@ namespace GameSimulate.Abstractions
         {
             _team = team;
             _power = _team.Pow;
-            _lineup = new List<T>();
+           // _lineup = new List<LivePlayer>();
         }
 
         public string Name => _team.Name;
         public string Country => _team.Country;
 
-        protected List<T> _lineup;
-        public ReadOnlyCollection<T> Lineup => _lineup.AsReadOnly();
+        protected IEnumerable<LivePlayer> _lineup;
+        public ReadOnlyCollection<LivePlayer> Lineup => _lineup.ToList().AsReadOnly();
 
-        private int _power;
+        internal int _power;
         public int Power
         {
             get
