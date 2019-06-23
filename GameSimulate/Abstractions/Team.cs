@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using GameSimulate.Enums;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class Team : Participant
+    public abstract class Team : Participant<TeamSport>
     {
         protected Team(string name, int power, string country, string city) : base(name, power, country, city)
         {

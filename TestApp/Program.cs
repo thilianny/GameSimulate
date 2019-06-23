@@ -15,13 +15,13 @@ namespace TestApp
             
             var barca = TeamCreator.Create(TeamSport.Football, "FC Barcelona", 93);
             var messi = PlayerCreator.Create(Sport.Football, "Lionel Messi", 90);
-            //barca.Sign(messi);
+            barca.Sign(messi);
 
             var clasico = GameCreator.TeamGame.Create(real, barca);
-            
-            Simulator.Execute(clasico);
 
-            int x = 0;
+            clasico?.Simulate();
+
+            int s = 0;
 
 
 

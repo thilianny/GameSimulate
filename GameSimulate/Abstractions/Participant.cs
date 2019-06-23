@@ -1,6 +1,6 @@
 namespace GameSimulate.Abstractions
 {
-    public abstract class Participant
+    public abstract class Participant<TSport> where TSport : System.Enum
     {
         protected Participant(string name, int power, string country, string city)
         {
@@ -11,6 +11,7 @@ namespace GameSimulate.Abstractions
             
         }
 
+        public TSport Sport { get; protected set; }
         public string Name { get; }
         public string Country { get; }
         public string City { get; }

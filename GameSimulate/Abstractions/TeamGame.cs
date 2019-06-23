@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
+using GameSimulate.Enums;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class TeamGame : Game
+    public abstract class TeamGame : Game<TeamSport>
     {
         protected TeamGame(LiveTeam home, LiveTeam away, DateTime? date = null) : base(date)
         {
@@ -14,7 +15,7 @@ namespace GameSimulate.Abstractions
         public LiveTeam Home { get; }
         public LiveTeam Away { get; }
 
-        internal override void Simulate()
+        public override void Simulate()
         {
             if (!Home.Lineup.Any() || !Away.Lineup.Any())
                 PowerSimulate();

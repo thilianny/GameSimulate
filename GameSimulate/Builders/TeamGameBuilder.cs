@@ -1,9 +1,10 @@
 using GameSimulate.Abstractions;
+using GameSimulate.Enums;
 
 namespace GameSimulate.Builders
 {
     public abstract class
-        TeamGameBuilder : GameBuilder<TeamGame, TeamGameBuilder>
+        TeamGameBuilder : GameBuilder<TeamGame, TeamSport, TeamGameBuilder>
     {
         protected override TeamGameBuilder BuilderInstance => this;
 

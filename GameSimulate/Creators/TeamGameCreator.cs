@@ -21,9 +21,8 @@ namespace GameSimulate.Creators
 
         public TeamGame Create(Team home, Team away, DateTime? date = null)
         {
-            var sportName = home.GetType().Name.Replace("Team", "");
-            var awaySportName = away.GetType().Name.Replace("Team", "");
-            if (sportName != awaySportName) return null;
+            var sportName = home.Sport.ToString();
+            if (home.Sport != away.Sport) return null;
 
             var builder = (TeamGameBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}GameBuilder"), true);

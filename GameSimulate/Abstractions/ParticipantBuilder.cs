@@ -1,8 +1,9 @@
 namespace GameSimulate.Abstractions
 {
-    public abstract class ParticipantBuilder<TParticipant, TBuilder> : Builder
-        where TParticipant : Participant
-        where TBuilder : ParticipantBuilder<TParticipant, TBuilder>
+    public abstract class ParticipantBuilder<TParticipant, TSport, TBuilder> : Builder
+        where TParticipant : Participant<TSport>
+        where TSport : System.Enum
+        where TBuilder : ParticipantBuilder<TParticipant, TSport, TBuilder>
     {
         protected string Country;
         protected string City;
