@@ -12,5 +12,6 @@ namespace GameSimulate.Implementations.Football
 
         public override Player Build(string name, int power = 0) =>
             new FootballPlayer(name, power, Country, City, Birthdate);
+
     }
 }

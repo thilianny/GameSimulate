@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameSimulate.Abstractions;
-using GameSimulate.Enums;
 
 namespace GameSimulate.Implementations.Hockey
 {
@@ -9,7 +8,6 @@ namespace GameSimulate.Implementations.Hockey
     {
         internal HockeyTeam(string name, int power, string country, string city) : base(name, power, country, city)
         {
-            Sport = TeamSport.Hockey;
         }
         
         public override void AttachRoster(IEnumerable<Player> roster)

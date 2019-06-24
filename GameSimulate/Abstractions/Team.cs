@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using GameSimulate.Enums;
+using GameSimulate.Interfaces;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class Team : Participant<TeamSport>
+    public abstract class Team : Participant
     {
         protected Team(string name, int power, string country, string city) : base(name, power, country, city)
         {
@@ -13,6 +13,8 @@ namespace GameSimulate.Abstractions
             _roster = new List<Player>();
         }
 
+        public ITeamSport Sport { get; protected set; }
+        
         protected List<Player> _roster;
         public ReadOnlyCollection<Player> Roster => _roster.AsReadOnly();
         public override int Power => !Roster.Any() ? Pow : Roster.Sum(p => p.Power) / Roster.Count;

@@ -1,9 +1,8 @@
 using GameSimulate.Abstractions;
-using GameSimulate.Enums;
 
 namespace GameSimulate.Builders
 {
-    public abstract class TeamBuilder : ParticipantBuilder<Team, TeamSport, TeamBuilder>
+    public abstract class TeamBuilder : ParticipantBuilder<Team, TeamBuilder>
     {
         public TeamBuilder Test()
         {

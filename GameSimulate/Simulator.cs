@@ -1,6 +1,3 @@
-using System;
-using GameSimulate.Abstractions;
-
 namespace GameSimulate
 {
     public static class Simulator
@@ -9,6 +6,8 @@ namespace GameSimulate
         {
             if (game==null) Console.WriteLine("Game has been created incorrectly.");
             else game?.Simulate();
-        }*/        
+        }*/
     }
+
+
 }

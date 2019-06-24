@@ -1,6 +1,5 @@
-using GameSimulate;
 using GameSimulate.Creators;
-using GameSimulate.Enums;
+using GameSimulate.Sports;
 
 namespace TestApp
 {
@@ -8,20 +7,14 @@ namespace TestApp
     {
         private static void Main(string[] args)
         {
-            var real = TeamCreator.Create(TeamSport.Football, "Real Madrid FC", 95);
-            var cristiano = PlayerCreator.Create(Sport.Football, "Cristiano Ronaldo", 93);
-            real.Sign(cristiano);
-            
-            
-            var barca = TeamCreator.Create(TeamSport.Football, "FC Barcelona", 93);
-            var messi = PlayerCreator.Create(Sport.Football, "Lionel Messi", 90);
-            barca.Sign(messi);
+            var cristiano = PlayerCreator.Create(Sport.Football, "Cristiano", 93);
+
+            var real = TeamCreator.Create(Sport.Football, "Real Madrid FC", 92);
+            var barca = TeamCreator.Create(Sport.Football, "FC Barcelona", 90);
 
             var clasico = GameCreator.TeamGame.Create(real, barca);
 
-            clasico?.Simulate();
-
-            int s = 0;
+            clasico.Simulate();
 
 
 

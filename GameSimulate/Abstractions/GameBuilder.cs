@@ -2,10 +2,9 @@ using System;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class GameBuilder<TGame, TSport, TBuilder> : Builder 
-        where TGame : Game<TSport>
-        where TSport : Enum
-        where TBuilder : GameBuilder<TGame, TSport, TBuilder>
+    public abstract class GameBuilder<TGame, TBuilder> : Builder 
+        where TGame : Game
+        where TBuilder : GameBuilder<TGame, TBuilder>
     {
         protected abstract TBuilder BuilderInstance { get; }
         

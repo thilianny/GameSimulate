@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
-using GameSimulate.Enums;
+using GameSimulate.Interfaces;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class TeamGame : Game<TeamSport>
+    public abstract class TeamGame : Game
     {
         protected TeamGame(LiveTeam home, LiveTeam away, DateTime? date = null) : base(date)
         {
@@ -14,6 +14,8 @@ namespace GameSimulate.Abstractions
 
         public LiveTeam Home { get; }
         public LiveTeam Away { get; }
+        
+        public ITeamSport Sport { get; protected set; }
 
         public override void Simulate()
         {

@@ -1,7 +1,7 @@
 using System;
 using GameSimulate.Abstractions;
 using GameSimulate.Builders;
-using GameSimulate.Enums;
+using GameSimulate.Interfaces;
 
 namespace GameSimulate.Creators
 {
@@ -12,17 +12,17 @@ namespace GameSimulate.Creators
             
         }
         
-        public TeamGameBuilder InitializeBuilder(TeamSport sport)
+        public TeamGameBuilder InitializeBuilder(ITeamSport sport)
         {
-            var sportName = Enum.GetName(typeof(Sport), sport);
+            var sportName = sport.GetType().Name;
             return (TeamGameBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}GameBuilder"), true);
         }
 
         public TeamGame Create(Team home, Team away, DateTime? date = null)
         {
-            var sportName = home.Sport.ToString();
-            if (home.Sport != away.Sport) return null;
+            var sportName = home.GetType().Name.Replace("Team", "");
+            if (home.GetType() != away.GetType()) return null;
 
             var builder = (TeamGameBuilder) Activator.CreateInstance(
                 Type.GetType($"GameSimulate.Implementations.{sportName}.{sportName}GameBuilder"), true);

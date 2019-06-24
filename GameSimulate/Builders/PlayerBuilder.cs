@@ -1,10 +1,9 @@
 using System;
 using GameSimulate.Abstractions;
-using GameSimulate.Enums;
 
 namespace GameSimulate.Builders
 {
-    public abstract class PlayerBuilder : ParticipantBuilder<Player, Sport, PlayerBuilder>
+    public abstract class PlayerBuilder : ParticipantBuilder<Player, PlayerBuilder>
     {
         protected DateTime? Birthdate;
 

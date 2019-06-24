@@ -8,7 +8,6 @@ namespace GameSimulate.Implementations.Football
         public FootballPlayer(string name, int power, string country, string city, DateTime? birthdate) : base(name,
             power, country, city, birthdate)
         {
-            Sport = Enums.Sport.Football;
         }
     }
 }

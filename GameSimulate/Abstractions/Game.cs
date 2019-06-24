@@ -1,16 +1,17 @@
 using System;
+using GameSimulate.Enums;
 
 namespace GameSimulate.Abstractions
 {
-    public abstract class Game<TSport> 
-        where TSport : Enum
+    public abstract class Game
     {
         protected Game(DateTime? date = null)
         {
             Date = date;
+            Status = EventStatus.Announced;
         }
         
-        public TSport Sport { get; protected set; }
+        public EventStatus Status { get; protected set; }
 
         public abstract void Simulate();
         

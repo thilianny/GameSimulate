@@ -8,7 +8,6 @@ namespace GameSimulate.Implementations.FormulaOne
         public FormulaOnePlayer(string name, int power, string country, string city, DateTime? birthdate) : base(name,
             power, country, city, birthdate)
         {
-            Sport = Enums.Sport.FormulaOne;
         }
     }
 }
